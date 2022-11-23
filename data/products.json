@@ -1,11 +1,1 @@
-[
-  {
-    "name": "billetera",
-    "description": "blanca",
-    "cod": 1989,
-    "img": "bla",
-    "price": 16000,
-    "stock": 4,
-    "id": 100
-  }
-]
+[{"name":"reloj","timestamp":1669229488492,"description":"negro","cod":1989,"img":"bla","price":16000,"stock":4,"id":1},{"name":"botella","timestamp":1669229594791,"description":"blanca","cod":1989,"img":"bla","price":16000,"stock":4,"id":2}]

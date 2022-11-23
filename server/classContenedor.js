@@ -52,13 +52,16 @@ class Contenedor {
     console.log('Se han eliminado todos los productos');
   }
 
-  async update(id, title, price, thumbnail) {
+  async update(id, name, description, cod, img, price, stock) {
     const productos = await this.getAll();
     const producto = productos.find((product) => product.id == id);
 
-    producto.title = title;
+    producto.name = name;
+    producto.description = description;
+    producto.cod = cod;
+    producto.img = img;
     producto.price = price;
-    producto.thumbnail = thumbnail;
+    producto.stock = stock;
 
     console.log(producto);
     await fs.promises.writeFile(this.file, JSON.stringify(productos));

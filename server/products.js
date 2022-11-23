@@ -26,7 +26,7 @@ productsRouter.get('/:id?', async (req, res) => {
     res.json({ products: productsList });
   } else {
     const productsList = await products.getAll();
-    res.json({ products: productsList });
+    res.json({ productsList });
   }
 });
 
@@ -45,7 +45,7 @@ productsRouter.post('/', async (req, res) => {
       price,
       stock,
     });
-    res.json({ added: addProduct });
+    res.json({ success: true, addProduct });
   } catch {
     res.json({ error: true, msg: 'No se pudo guardar el producto' });
   }
