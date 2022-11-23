@@ -1,18 +1,30 @@
 [
-    {
-      "id": 1,
-      "timestamp": 1668804325274,
-      "productos": [
-        {
-          "nombre": "billetera",
-          "descripcion": "blanca",
-          "codigo": 1989,
-          "foto": "bla",
-          "precio": 16000,
-          "stock": 4,
-          "id": 100
-        }
-      ]
-    }
-  ]
-  
+  {
+    "id": 1,
+    "timestamp": 1668804325274,
+    "products": [
+      {
+        "nombre": "billetera",
+        "descripcion": "blanca",
+        "codigo": 1989,
+        "foto": "bla",
+        "precio": 16000,
+        "stock": 4
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "timestamp": 1669234084628,
+    "products": [
+      {
+        "name": "celular",
+        "description": "gris",
+        "cod": 1989,
+        "img": "bla",
+        "price": 16000,
+        "stock": 4
+      }
+    ]
+  }
+]

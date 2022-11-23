@@ -17,6 +17,10 @@ app.use('/api/carrito', cartRouter);
 const cors = require('cors');
 app.use(cors({ origin: '*' }));
 
+app.get('/*', (req, res) => {
+  res.json({ error: true, descripcion: 'ruta no encontrada' });
+});
+
 app.listen(PORT, () => {
   console.log(`Server activo, escuchando en puerto http://localhost:${PORT}`);
 });

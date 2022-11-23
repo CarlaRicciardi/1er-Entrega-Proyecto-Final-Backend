@@ -1,1 +1,32 @@
-[{"name":"reloj","timestamp":1669229488492,"description":"negro","cod":1989,"img":"bla","price":16000,"stock":4,"id":1},{"name":"botella","timestamp":1669229594791,"description":"blanca","cod":1989,"img":"bla","price":16000,"stock":4,"id":2}]
+[
+  {
+    "name": "reloj",
+    "timestamp": 1669229488492,
+    "description": "negro",
+    "cod": 1989,
+    "img": "bla",
+    "price": 16000,
+    "stock": 4,
+    "id": 1
+  },
+  {
+    "name": "botella",
+    "timestamp": 1669229594791,
+    "description": "blanca",
+    "cod": 1989,
+    "img": "bla",
+    "price": 16000,
+    "stock": 4,
+    "id": 2
+  },
+  {
+    "name": "cartuchera",
+    "timestamp": 1669234858475,
+    "description": "rosa",
+    "cod": 1989,
+    "img": "bla",
+    "price": 16000,
+    "stock": 1,
+    "id": 3
+  }
+]
