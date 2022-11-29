@@ -59,7 +59,7 @@ class Cart {
     try {
       const data = await fs.promises.readFile(this.file, 'utf-8');
       const arrayCart = JSON.parse(data);
-      let thisCart = arrayObj.find((element) => element.id == idCart);
+      let thisCart = arrayCart.find((element) => element.id == idCart);
       if (thisCart) {
         let oldProducts = thisCart.products;
         let addedProduct = oldProducts.concat(newProd);

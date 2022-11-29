@@ -30,10 +30,10 @@ productsRouter.get('/:id?', async (req, res) => {
   }
 });
 
-productsRouter.use(middlewareAdmin);
+// productsRouter.use(middlewareAdmin);
 
 // POST '/api/productos' -> incorpora productos al listado (solo admins)
-productsRouter.post('/', async (req, res) => {
+productsRouter.post('/', middlewareAdmin, async (req, res) => {
   const { name, description, cod, img, price, stock } = req.body;
   try {
     let addProduct = await products.save({
@@ -52,7 +52,7 @@ productsRouter.post('/', async (req, res) => {
 });
 
 // PUT '/api/productos/:id' -> recibe y actualiza un producto según su id. (solo admins)
-productsRouter.put('/:id', async (req, res) => {
+productsRouter.put('/:id', middlewareAdmin, async (req, res) => {
   const { id } = req.params;
   const { name, description, cod, img, price, stock } = req.body;
   try {
@@ -73,11 +73,11 @@ productsRouter.put('/:id', async (req, res) => {
 });
 
 // DELETE '/api/productos/:id' -> elimina un producto según su id. (solo admins)
-productsRouter.delete('/:id', async (req, res) => {
+productsRouter.delete('/:id', middlewareAdmin, async (req, res) => {
   const { id } = req.params;
   try {
-    let deleteProduct = await products.deleteById(id);
-    res.json({ deleted: deleteProduct });
+    await products.deleteById(id);
+    res.json({ success: true });
   } catch (e) {
     res.json({ error: true, msg: 'producto no encontrado' });
   }

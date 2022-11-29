@@ -4,11 +4,11 @@
     "timestamp": 1668804325274,
     "products": [
       {
-        "nombre": "billetera",
-        "descripcion": "blanca",
-        "codigo": 1989,
-        "foto": "bla",
-        "precio": 16000,
+        "name": "billetera",
+        "description": "blanca",
+        "cod": 1989,
+        "img": "bla",
+        "price": 16000,
         "stock": 4
       }
     ]
@@ -24,6 +24,22 @@
         "img": "bla",
         "price": 16000,
         "stock": 4
+      },
+      {
+        "name": "cuaderno",
+        "description": "marron",
+        "cod": 19859,
+        "img": "bla",
+        "price": 1000,
+        "stock": 1
+      },
+      {
+        "name": "cuaderno",
+        "description": "marron",
+        "cod": 19859,
+        "img": "bla",
+        "price": 1000,
+        "stock": 1
       }
     ]
   }

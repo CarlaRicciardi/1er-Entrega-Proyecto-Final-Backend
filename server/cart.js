@@ -5,7 +5,6 @@ const cartRouter = Router();
 const classCarrito = require('./classCart');
 const cart = new classCarrito('./data/carrito.json');
 
-
 cartRouter.post('/', async (req, res) => {
   const { name, description, cod, img, price, stock, id } = req.body;
   let newCart = await cart.createCart({
@@ -29,7 +28,9 @@ cartRouter.delete('/:id', async (req, res) => {
 cartRouter.get('/:id/productos', async (req, res) => {
   const { id } = req.params;
   let productsList = await cart.getAllCart(id);
-  res.json({ productos: productsList });
+  productsList
+    ? res.json({ productos: productsList })
+    : res.json({ error: 'cart not found' });
 });
 
 cartRouter.post('/:id/productos', async (req, res) => {
@@ -41,7 +42,10 @@ cartRouter.post('/:id/productos', async (req, res) => {
 cartRouter.delete('/:id/productos/:id_prod', async (req, res) => {
   const { id } = req.params;
   const { id_prod } = req.params;
-  await cart.deleteProdCart(id, id_prod);
+  let deleteCart = await cart.deleteProdCart(id, id_prod);
+  deleteCart
+    ? res.json({ productos: productsList })
+    : res.json({ error: 'cart not found' });
 });
 
 module.exports = cartRouter;
