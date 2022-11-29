@@ -40,10 +40,13 @@ class Contenedor {
   async deleteById(id) {
     try {
       const products = await this.getAll();
+      const productFind = products.find((el) => el.id == id);
+      if (!productFind) return console.log('el id no existe');
       const filtradoId = products.filter((e) => e.id != id);
       await fs.promises.writeFile(this.file, JSON.stringify(filtradoId));
+      console.log('producto eliminado');
     } catch (err) {
-      console.log(`No se encontró el objeto con id: ${id}`);
+      console.log(err);
     }
   }
 
