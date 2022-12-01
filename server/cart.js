@@ -5,6 +5,9 @@ const cartRouter = Router();
 const classCarrito = require('./classCart');
 const cart = new classCarrito('./data/carrito.json');
 
+const container = require('./classContenedor');
+const product = new container('./data/products.json');
+
 cartRouter.post('/', async (req, res) => {
   const { name, description, cod, img, price, stock, id } = req.body;
   let newCart = await cart.createCart({
@@ -35,8 +38,9 @@ cartRouter.get('/:id/productos', async (req, res) => {
 
 cartRouter.post('/:id/productos', async (req, res) => {
   const { id } = req.params;
-  let { ...newProd } = req.body;
-  await cart.addCartbyId(id, newProd);
+  let { id: productId } = req.body;
+  const newProduct = await product.getById(productId);
+  await cart.addCartbyId(id, newProduct);
 });
 
 cartRouter.delete('/:id/productos/:id_prod', async (req, res) => {

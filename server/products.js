@@ -56,15 +56,15 @@ productsRouter.put('/:id', middlewareAdmin, async (req, res) => {
   const { id } = req.params;
   const { name, description, cod, img, price, stock } = req.body;
   try {
-    let updateProduct = await products.update(id, {
+    let updateProduct = await products.update(
+      id,
       name,
-      timestamp: Date.now(),
       description,
       cod,
       img,
       price,
-      stock,
-    });
+      stock
+    );
     res.json({ updated: updateProduct });
   } catch (e) {
     console.log(e);

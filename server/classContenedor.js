@@ -59,16 +59,21 @@ class Contenedor {
     const productos = await this.getAll();
     const producto = productos.find((product) => product.id == id);
 
-    producto.name = name;
-    producto.description = description;
-    producto.cod = cod;
-    producto.img = img;
-    producto.price = price;
-    producto.stock = stock;
+    if (producto) {
+      producto.name = name;
+      producto.description = description;
+      producto.cod = cod;
+      producto.img = img;
+      producto.price = price;
+      producto.stock = stock;
+      producto.timestamp = Date.now();
 
-    console.log(producto);
-    await fs.promises.writeFile(this.file, JSON.stringify(productos));
-    return producto;
+      console.log(producto);
+      await fs.promises.writeFile(this.file, JSON.stringify(productos));
+      return producto;
+    } else {
+      return 'product not find';
+    }
   }
 }
 
