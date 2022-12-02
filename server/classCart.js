@@ -1,3 +1,4 @@
+const { json } = require('express');
 const fs = require('fs');
 
 class Cart {
@@ -19,7 +20,7 @@ class Cart {
       arrayCart.push(newCart);
       const newArrayCart = JSON.stringify(arrayCart);
       await fs.promises.writeFile(this.file, newArrayCart);
-      return newArrayCart.id;
+      return newCart;
     } catch (err) {
       console.log('Hubo un error: ', err);
     }
@@ -30,11 +31,16 @@ class Cart {
     try {
       const data = await fs.promises.readFile(this.file, 'utf-8');
       const arrayObj = JSON.parse(data);
-      const newArray = arrayObj.filter((element) => element.id != num);
-      const stringNewArray = JSON.stringify(newArray);
-      await fs.promises.writeFile(this.file, stringNewArray);
+      if (arrayObj) {
+        const newArray = arrayObj.filter((element) => element.id != num);
+        const stringNewArray = JSON.stringify(newArray);
+        await fs.promises.writeFile(this.file, stringNewArray);
+      } else {
+        console.log('no se pudo eliminar carrito');
+      }
     } catch (err) {
       console.log(`No se encontró el objeto con id: ${id}`);
+      res.json({ error: true });
     }
   }
 
